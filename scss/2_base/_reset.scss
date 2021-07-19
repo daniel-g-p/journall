@@ -1,0 +1,17 @@
+@use "../1_abstracts/" as *;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font: 400 100%/1 "Lato", sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    color: $color-grey-25;
+}

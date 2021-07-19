@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Pacifico";
+  src: url("../fonts/pacifico-regular.woff2") format("woff2"), url("../fonts/pacifico-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/lato-bold.woff2") format("woff2"), url("../fonts/lato-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/lato-regular.woff2") format("woff2"), url("../fonts/lato-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font: 400 100%/1 "Lato", sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  color: #404040;
+}
+
+/*# sourceMappingURL=style.css.map */
