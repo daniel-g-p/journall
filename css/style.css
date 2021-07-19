@@ -54,6 +54,11 @@ body {
   color: #404040;
 }
 
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
 a {
   cursor: pointer;
 }
@@ -118,6 +123,7 @@ a {
   cursor: pointer;
 }
 .form__group {
+  position: relative;
   margin-bottom: 1rem;
 }
 .form__input--text, .form__input--password {
@@ -160,6 +166,14 @@ a {
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.25s ease;
 }
+.form__input--error {
+  border-color: #DF9F9F;
+  padding-right: 3rem;
+}
+.form__input--error + .form__error-icon {
+  opacity: 1;
+  pointer-events: all;
+}
 .form__button {
   margin-top: 1rem;
 }
@@ -178,6 +192,51 @@ a {
 }
 .form__help:hover, .form__help:focus {
   color: #d9d9d9;
+}
+.form__error {
+  position: absolute;
+  right: 0rem;
+  bottom: 2.75rem;
+  background-color: #DF9F9F;
+  border-radius: 0.25rem;
+  color: #FFFFFF;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.form__error-text {
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+.form__error-item:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+.form__error-item svg {
+  height: 0.75em;
+  fill: #FFFFFF;
+}
+.form__error-item--missing {
+  opacity: 0.5;
+}
+.form__error-icon {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  height: 1.5rem;
+  fill: #DF9F9F;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.form__error-icon:hover, .form__error-icon--fixed {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.form__error-icon:hover + .form__error, .form__error-icon--fixed + .form__error {
+  opacity: 1;
+  transform: translateY(-0.5rem);
 }
 
 .button {
