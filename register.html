@@ -13,12 +13,6 @@
     <div class="container container--center">
         <main class="block block--center">
             <img src="img/logo_black.svg" alt="Journall Logo" class="block__logo">
-            <!-- <a href="/" class="block__link link">
-                <svg>
-                    <use href="img/icons.svg#arrow"></use>
-                </svg>
-                <span>Back to login</span>
-            </a> -->
             <div class="block__buttons">
                 <a href="login.html" class="block__button button button--small button--green-outline">Login</a>
                 <a href="register.html" class="block__button button button--small button--green-fill">Registration</a>
@@ -96,13 +90,19 @@
                     </label>
                 </div>
                 <button class="form__button button button--big button--purple-fill">Login</button>
-                <a class="form__help">
-                    <svg>
-                        <use href="img/icons.svg#question"></use>
-                    </svg>
-                    <span>Forgot your password?</span>
-                </a>
             </form>
+            <div class="modal modal--registration-failed">
+                <div class="modal__background"></div>
+                <div class="modal__content">
+                    <svg class="modal__close" viewbox="0 0 16 16">
+                        <path
+                            d="M15.66,14.05,9.62,8l6-6a.94.94,0,0,0,.25-.37A1.12,1.12,0,0,0,16,1.14a1.07,1.07,0,0,0-.09-.43.94.94,0,0,0-.25-.37,1.05,1.05,0,0,0-.37-.25A1.07,1.07,0,0,0,14.86,0a1.12,1.12,0,0,0-.44.09,1.05,1.05,0,0,0-.37.25L8,6.38l-6-6A.94.94,0,0,0,1.58.09,1.12,1.12,0,0,0,1.14,0,1.07,1.07,0,0,0,.71.09.94.94,0,0,0,.34.34.94.94,0,0,0,.09.71,1.07,1.07,0,0,0,0,1.14a1.12,1.12,0,0,0,.09.44A.94.94,0,0,0,.34,2L6.38,8l-6,6.05a1.05,1.05,0,0,0-.25.37,1.12,1.12,0,0,0-.09.44,1.07,1.07,0,0,0,.09.43,1.05,1.05,0,0,0,.25.37.94.94,0,0,0,.37.25,1.07,1.07,0,0,0,.43.09,1.12,1.12,0,0,0,.44-.09A.94.94,0,0,0,2,15.66L8,9.62l6.05,6a.94.94,0,0,0,.37.25,1.12,1.12,0,0,0,.44.09,1.07,1.07,0,0,0,.43-.09,1.17,1.17,0,0,0,.62-.62,1.07,1.07,0,0,0,.09-.43,1.12,1.12,0,0,0-.09-.44A.94.94,0,0,0,15.66,14.05Z" />
+                    </svg>
+                    <h2 class="modal__heading heading-2">That didn't work...</h2>
+                    <p class="modal__description paragraph">Looks like we couldn't create an account with the details you entered. Please check the information you provided and try again.</p>
+                    <div class="modal__button button button--big button--purple-fill">Try again</div>
+                </div>
+            </div>
         </main>
     </div>
 </body>

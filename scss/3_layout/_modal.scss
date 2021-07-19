@@ -1,0 +1,58 @@
+@use "../1_abstracts/" as *;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: $color-shadow;
+    backdrop-filter: blur(0.25rem);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    @include responsive($screen-mobile-m) {
+        padding: 0 2rem;
+    }
+    &--active {
+        pointer-events: all;
+        opacity: 1;
+        &>.modal__content {
+            transform: scale(1);
+        }
+    }
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        max-width: 24rem;
+        padding: 2rem;
+        background-color: $color-white;
+        border-radius: 0.25rem;
+        box-shadow: 0 0.5rem 1rem $color-shadow;
+        transform: scale(0.9);
+        transition: transform 0.5s ease;
+    }
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        height: 1rem;
+        fill: $color-grey-75;
+        cursor: pointer;
+        transition: fill 0.25s ease;
+        &:hover {
+            fill: $color-grey-50;
+        }
+    }
+    &__heading {
+        margin-bottom: 1rem;
+    }
+    &__description {
+        color: $color-grey-75;
+        margin-bottom: 1rem;
+    }
+}
