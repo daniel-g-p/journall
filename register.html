@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journall - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container container--center">
+        <main class="block block--center">
+            <img src="img/logo_black.svg" alt="Journall Logo" class="block__logo">
+            <!-- <a href="/" class="block__link link">
+                <svg>
+                    <use href="img/icons.svg#arrow"></use>
+                </svg>
+                <span>Back to login</span>
+            </a> -->
+            <div class="block__buttons">
+                <a href="login.html" class="block__button button button--small button--green-outline">Login</a>
+                <a href="register.html" class="block__button button button--small button--green-fill">Registration</a>
+            </div>
+            <form action="" class="block__form form" novalidate>
+                <h2 class="form__heading heading-2">Register</h2>
+                <div class="form__group">
+                    <label for="email" class="form__label">Email Address</label>
+                    <input type="email" class="form__input form__input--email" name="email" id="email">
+                </div>
+                <div class="form__group">
+                    <label for="username" class="form__label">Username</label>
+                    <input type="text" class="form__input form__input--text" name="username" id="username">
+                </div>
+                <div class="form__group">
+                    <label for="password" class="form__label">Password</label>
+                    <input type="password" class="form__input form__input--password" name="password" id="password">
+                    <svg class="form__error-icon" viewbox="0 0 16 16">
+                        <path
+                            d="M13.66,2.34A8,8,0,1,0,16,8,8,8,0,0,0,13.66,2.34ZM13,13A7,7,0,1,1,15,8,7,7,0,0,1,13,13Z" />
+                        <path
+                            d="M7.45,8.5a.5.5,0,0,0,.18.36.53.53,0,0,0,.74,0,.5.5,0,0,0,.18-.36L8.9,5a1,1,0,0,0,0-.38.92.92,0,0,0-.19-.33.9.9,0,0,0-1.34,0,.92.92,0,0,0-.19.33A1,1,0,0,0,7.1,5Z" />
+                        <path
+                            d="M8.71,10.29a.93.93,0,0,0-.33-.21.94.94,0,0,0-.76,0,.9.9,0,0,0-.54.54A1,1,0,0,0,7,11a1,1,0,0,0,.29.71A1.05,1.05,0,0,0,8,12a1,1,0,0,0,.71-.29,1,1,0,0,0,.22-1.09A1.19,1.19,0,0,0,8.71,10.29Z" />
+                    </svg>
+                    <div class="form__error">
+                        <p class="form__error-text">Must contain at least...</p>
+                        <ul class="form__error-list">
+                            <li class="form__error-item">
+                                <svg viewbox="0 0 23 16">
+                                    <path
+                                        d="M22.92.62A1,1,0,0,0,22.7.29,1,1,0,0,0,22,0a1,1,0,0,0-.39.08,1,1,0,0,0-.32.21L8,13.58,1.71,7.29A1,1,0,0,0,1,7a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.42l7,7a.93.93,0,0,0,.33.21.94.94,0,0,0,.76,0,1.15,1.15,0,0,0,.33-.21l14-14a.83.83,0,0,0,.22-.33A1,1,0,0,0,23,1,1,1,0,0,0,22.92.62Z" />
+                                </svg>
+                                <span>8 characters</span>
+                            </li>
+                            <li class="form__error-item">
+                                <svg viewbox="0 0 23 16">
+                                    <path
+                                        d="M22.92.62A1,1,0,0,0,22.7.29,1,1,0,0,0,22,0a1,1,0,0,0-.39.08,1,1,0,0,0-.32.21L8,13.58,1.71,7.29A1,1,0,0,0,1,7a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.42l7,7a.93.93,0,0,0,.33.21.94.94,0,0,0,.76,0,1.15,1.15,0,0,0,.33-.21l14-14a.83.83,0,0,0,.22-.33A1,1,0,0,0,23,1,1,1,0,0,0,22.92.62Z" />
+                                </svg>
+                                <span>1 digit</span>
+                            </li>
+                            <li class="form__error-item form__error-item--missing">
+                                <svg viewbox="0 0 23 16">
+                                    <path
+                                        d="M22.92.62A1,1,0,0,0,22.7.29,1,1,0,0,0,22,0a1,1,0,0,0-.39.08,1,1,0,0,0-.32.21L8,13.58,1.71,7.29A1,1,0,0,0,1,7a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.42l7,7a.93.93,0,0,0,.33.21.94.94,0,0,0,.76,0,1.15,1.15,0,0,0,.33-.21l14-14a.83.83,0,0,0,.22-.33A1,1,0,0,0,23,1,1,1,0,0,0,22.92.62Z" />
+                                </svg>
+                                <span>1 special character</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="confirm-password" class="form__label">Confirm password</label>
+                    <input type="password" class="form__input form__input--password" name="confirm-password" id="confirm-password">
+                    <svg class="form__error-icon" viewbox="0 0 16 16">
+                        <path
+                            d="M13.66,2.34A8,8,0,1,0,16,8,8,8,0,0,0,13.66,2.34ZM13,13A7,7,0,1,1,15,8,7,7,0,0,1,13,13Z" />
+                        <path
+                            d="M7.45,8.5a.5.5,0,0,0,.18.36.53.53,0,0,0,.74,0,.5.5,0,0,0,.18-.36L8.9,5a1,1,0,0,0,0-.38.92.92,0,0,0-.19-.33.9.9,0,0,0-1.34,0,.92.92,0,0,0-.19.33A1,1,0,0,0,7.1,5Z" />
+                        <path
+                            d="M8.71,10.29a.93.93,0,0,0-.33-.21.94.94,0,0,0-.76,0,.9.9,0,0,0-.54.54A1,1,0,0,0,7,11a1,1,0,0,0,.29.71A1.05,1.05,0,0,0,8,12a1,1,0,0,0,.71-.29,1,1,0,0,0,.22-1.09A1.19,1.19,0,0,0,8.71,10.29Z" />
+                    </svg>
+                    <div class="form__error">
+                        <p class="form__error-text">Passwords don't match...</p>
+                    </div>
+                </div>
+                <div class="form__group form__group--checkbox">
+                    <input type="checkbox" class="form__input form__input--hidden" name="remember" id="remember">
+                    <label for="remember" class="form__label form__label--checkbox">
+                        <div class="input form__input--checkbox">
+                            <div></div>
+                        </div>
+                        <span>Remember me</span>
+                    </label>
+                </div>
+                <button class="form__button button button--big button--purple-fill">Login</button>
+                <a class="form__help">
+                    <svg>
+                        <use href="img/icons.svg#question"></use>
+                    </svg>
+                    <span>Forgot your password?</span>
+                </a>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

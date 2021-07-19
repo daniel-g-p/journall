@@ -26,7 +26,8 @@
     }
     &__input {
         &--text,
-        &--password {
+        &--password,
+        &--email {
             width: 100%;
             outline: none;
             font-family: "Lato", sans-serif;
@@ -77,6 +78,7 @@
         }
     }
     &__button {
+        font-family: "Lato", sans-serif;
         margin-top: 1rem;
     }
     &__help {

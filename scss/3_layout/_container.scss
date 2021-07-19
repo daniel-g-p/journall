@@ -7,6 +7,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 2rem;
+        padding: 0 1rem;
+        @include responsive($screen-mobile-m) {
+            padding: 0 2rem;
+        }
     }
 }

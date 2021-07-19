@@ -70,7 +70,12 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 1rem;
+}
+@media (min-width: 27.5rem) {
+  .container--center {
+    padding: 0 2rem;
+  }
 }
 
 .block {
@@ -78,11 +83,11 @@ a {
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  max-width: 24rem;
+  max-width: 32rem;
   margin: 3rem 0;
 }
 .block__logo {
-  height: 3rem;
+  height: 4rem;
   margin-bottom: 2rem;
 }
 .block__link {
@@ -106,7 +111,7 @@ a {
   padding: 2rem;
   background-color: #FFFFFF;
   border-radius: 0.25rem;
-  box-shadow: 0 0.5rem 1rem #00000010;
+  box-shadow: 0 0.5rem 1rem #00000020;
 }
 .form__heading {
   margin-bottom: 2rem;
@@ -126,7 +131,7 @@ a {
   position: relative;
   margin-bottom: 1rem;
 }
-.form__input--text, .form__input--password {
+.form__input--text, .form__input--password, .form__input--email {
   width: 100%;
   outline: none;
   font-family: "Lato", sans-serif;
@@ -137,7 +142,7 @@ a {
   border: 0.125rem solid #E5E5E5;
   transition: border-color 0.25s ease;
 }
-.form__input--text:hover, .form__input--text:focus, .form__input--password:hover, .form__input--password:focus {
+.form__input--text:hover, .form__input--text:focus, .form__input--password:hover, .form__input--password:focus, .form__input--email:hover, .form__input--email:focus {
   border-color: #BFBFBF;
 }
 .form__input--hidden {
@@ -175,6 +180,7 @@ a {
   pointer-events: all;
 }
 .form__button {
+  font-family: "Lato", sans-serif;
   margin-top: 1rem;
 }
 .form__help {
