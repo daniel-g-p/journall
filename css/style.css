@@ -16,6 +16,24 @@
   font-weight: 400;
   font-style: normal;
 }
+.heading-1,
+.heading-2,
+.heading-3 {
+  font-family: "Pacifico", sans-serif;
+}
+
+.heading-2 {
+  font-size: 2rem;
+}
+
+.paragraph {
+  line-height: 1.5em;
+}
+
+.highlight {
+  font-weight: 700;
+}
+
 .link {
   color: #9FDF9F;
   font-weight: 700;
@@ -30,11 +48,6 @@
   max-width: 1em;
   margin-right: 0.25em;
   fill: currentColor;
-}
-
-.heading-2 {
-  font-family: "Pacifico", sans-serif;
-  font-size: 2rem;
 }
 
 *,
@@ -61,6 +74,11 @@ ul {
 
 a {
   cursor: pointer;
+}
+
+mark {
+  background-color: transparent;
+  color: currentColor;
 }
 
 .container--center {
@@ -92,7 +110,7 @@ a {
 }
 .block__link {
   align-self: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .block__buttons {
   display: grid;
@@ -114,6 +132,10 @@ a {
   box-shadow: 0 0.5rem 1rem #00000020;
 }
 .form__heading {
+  margin-bottom: 2rem;
+}
+.form__description {
+  color: #BFBFBF;
   margin-bottom: 2rem;
 }
 .form__label {
@@ -189,6 +211,7 @@ a {
   margin-top: 0.75rem;
   color: #BFBFBF;
   transition: color 0.25s ease;
+  text-decoration: none;
 }
 .form__help svg {
   width: 1em;
@@ -281,6 +304,33 @@ a {
 }
 .button--purple-fill:hover, .button--purple-fill:focus {
   background-color: #b2b2e5;
+}
+
+.reset-password {
+  position: relative;
+  transition: max-height 0.5s ease;
+}
+.reset-password__step {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(1rem);
+  opacity: 0;
+}
+.reset-password__step--active {
+  display: flex;
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.reset-password__step--exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-1rem);
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -20,6 +20,24 @@
     font-style: normal;
 }
 
+.heading-1,
+.heading-2,
+.heading-3 {
+    font-family: "Pacifico", sans-serif;
+}
+
+.heading-2 {
+    font-size: 2rem;
+}
+
+.paragraph {
+    line-height: 1.5em;
+}
+
+.highlight {
+    font-weight: 700;
+}
+
 .link {
     color: $color-green;
     font-weight: 700;
@@ -35,9 +53,4 @@
         margin-right: 0.25em;
         fill: currentColor;
     }
-}
-
-.heading-2 {
-    font-family: "Pacifico", sans-serif;
-    font-size: 2rem;
 }
