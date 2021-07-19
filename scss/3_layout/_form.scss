@@ -1,0 +1,90 @@
+@use "../1_abstracts/" as *;
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: $color-white;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem $color-shadow;
+    &__heading {
+        margin-bottom: 2rem;
+    }
+    &__label {
+        display: block;
+        text-transform: uppercase;
+        color: $color-green;
+        margin-bottom: 0.5rem;
+        &--checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+    &__group {
+        margin-bottom: 1rem;
+    }
+    &__input {
+        &--text,
+        &--password {
+            width: 100%;
+            outline: none;
+            font-family: "Lato", sans-serif;
+            font-size: 1.25rem;
+            color: $color-grey-25;
+            border-radius: 0.25rem;
+            padding: 0.5em;
+            border: 0.125rem solid $color-grey-90;
+            transition: border-color 0.25s ease;
+            &:hover,
+            &:focus {
+                border-color: $color-grey-75;
+            }
+        }
+        &--hidden {
+            display: none;
+            &:checked+label>div>div {
+                transform: translate(-50%, -50%) scale(0.75);
+            }
+        }
+        &--checkbox {
+            position: relative;
+            width: 1em;
+            height: 1em;
+            margin-right: 0.5em;
+            border: 0.125rem solid $color-green;
+            border-radius: 0.25rem;
+            div {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: $color-green;
+                border-radius: 0.125rem;
+                transform: translate(-50%, -50%) scale(0);
+                transition: transform 0.25s ease;
+            }
+        }
+    }
+    &__button {
+        margin-top: 1rem;
+    }
+    &__help {
+        display: flex;
+        align-items: center;
+        margin-top: 0.75rem;
+        color: $color-grey-75;
+        transition: color 0.25s ease;
+        svg {
+            width: 1em;
+            height: 1em;
+            margin-right: 0.25em;
+            fill: currentColor;
+        }
+        &:hover,
+        &:focus {
+            color: lighten($color-grey-75, 10%);
+        }
+    }
+}

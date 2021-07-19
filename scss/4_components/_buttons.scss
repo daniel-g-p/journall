@@ -1,0 +1,41 @@
+@use "../1_abstracts/" as *;
+.button {
+    padding: 0.5em 1em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.25em;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &--green-fill {
+        background-color: $color-green;
+        color: $color-white;
+        transition: background-color 0.25s ease;
+        &:hover,
+        &:focus {
+            background-color: lighten($color-green, 5%);
+        }
+    }
+    &--green-outline {
+        color: $color-green;
+        border: 0.125rem solid currentColor;
+        transition: color 0.25s ease;
+        &:hover,
+        &:focus {
+            color: lighten($color-green, 5%);
+        }
+    }
+    &--big {
+        font-size: 1.25rem;
+    }
+    &--purple-fill {
+        background-color: $color-purple;
+        color: $color-white;
+        transition: background-color 0.25s ease;
+        &:hover,
+        &:focus {
+            background-color: lighten($color-purple, 5%);
+        }
+    }
+}

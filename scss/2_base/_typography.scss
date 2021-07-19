@@ -1,3 +1,4 @@
+@use "../1_abstracts/" as *;
 @font-face {
     font-family: 'Pacifico';
     src: url('../fonts/pacifico-regular.woff2') format('woff2'), url('../fonts/pacifico-regular.woff') format('woff');
@@ -17,4 +18,26 @@
     src: url('../fonts/lato-regular.woff2') format('woff2'), url('../fonts/lato-regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
+}
+
+.link {
+    color: $color-green;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.25s ease;
+    &:hover,
+    &:focus {
+        color: lighten($color-green, 5%);
+    }
+    svg {
+        height: 1em;
+        max-width: 1em;
+        margin-right: 0.25em;
+        fill: currentColor;
+    }
+}
+
+.heading-2 {
+    font-family: "Pacifico", sans-serif;
+    font-size: 2rem;
 }

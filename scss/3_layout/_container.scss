@@ -1,0 +1,12 @@
+@use "../1_abstracts/" as *;
+.container {
+    &--center {
+        background-color: $color-green-light;
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 2rem;
+    }
+}
