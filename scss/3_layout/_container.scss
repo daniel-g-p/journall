@@ -8,7 +8,7 @@
         justify-content: center;
         align-items: center;
         padding: 0 1rem;
-        @include responsive($screen-mobile-m) {
+        @include responsive($screen-mobile-s) {
             padding: 0 2rem;
         }
     }

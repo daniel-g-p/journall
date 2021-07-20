@@ -90,7 +90,7 @@ mark {
   align-items: center;
   padding: 0 1rem;
 }
-@media (min-width: 27.5rem) {
+@media (min-width: 20rem) {
   .container--center {
     padding: 0 2rem;
   }
@@ -291,6 +291,7 @@ mark {
 }
 .modal--active {
   pointer-events: all;
+  visibility: visible;
   opacity: 1;
 }
 .modal--active > .modal__content {
