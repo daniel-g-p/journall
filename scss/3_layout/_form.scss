@@ -75,7 +75,8 @@
         &--error {
             border-color: $color-red;
             padding-right: 3rem;
-            &:hover {
+            &:hover,
+            &:focus {
                 border-color: $color-red;
             }
             &+.form__error-icon {
@@ -124,6 +125,7 @@
     }
     &__error-list {
         margin-top: 0.5em;
+        padding-left: 1rem;
     }
     &__error-item {
         &:not(:last-child) {

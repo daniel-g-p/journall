@@ -70,11 +70,6 @@ body {
   color: #404040;
 }
 
-ul {
-  list-style: none;
-  list-style-type: none;
-}
-
 a {
   cursor: pointer;
 }
@@ -200,7 +195,7 @@ mark {
   border-color: #DF9F9F;
   padding-right: 3rem;
 }
-.form__input--error:hover {
+.form__input--error:hover, .form__input--error:focus {
   border-color: #DF9F9F;
 }
 .form__input--error + .form__error-icon {
@@ -246,6 +241,7 @@ mark {
 }
 .form__error-list {
   margin-top: 0.5em;
+  padding-left: 1rem;
 }
 .form__error-item:not(:last-child) {
   margin-bottom: 0.5em;

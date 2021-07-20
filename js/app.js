@@ -49,7 +49,7 @@ class Input extends DomElement {
         this.format = format;
     }
     validate() {
-        return this.value() && this.value().match(this.format) ? true : false;
+        return (this.value() && this.value().match(this.format)) ? true : false;
     }
     value() {
         return this.element.value;
@@ -63,41 +63,125 @@ const dom = {
         password: new Input("password", "form__input"),
         modal: new DomElement("modal", "login-failed"),
         modalToggles: new DomElementGroup("modal__background, .modal__close, .modal__button")
+    },
+    register: {
+        form: new DomElement("form", "register"),
+        email: new Input("email", "form__input", /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        username: new Input("username", "form__input", /[A-Za-z0-9\-\_]+/),
+        password: new Input("password", "form__input", /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#.?!@$%^&*-]).{8,}$/),
+        confirmPassword: new Input("confirm-password", "form__input"),
+        modal: new DomElement("modal", "registration-failed"),
+        modalToggles: new DomElementGroup("modal__background, .modal__close, .modal__button")
     }
 }
 
+
 const database = {
     users: [{
-        username: "daniel.gp",
+        email: "a@gmail.com",
+        username: "alfred",
+        password: "Journall"
+    }, {
+        email: "b@gmail.com",
+        username: "b",
+        password: "Journall"
+    }, {
+        email: "c@gmail.com",
+        username: "c",
+        password: "Journall"
+    }, {
+        email: "d@gmail.com",
+        username: "d",
+        password: "Journall"
+    }, {
+        email: "e@gmail.com",
+        username: "e",
         password: "Journall"
     }],
+    findUser(userInput, userInput2) {
+        userInput2 = userInput2 ? userInput2 : userInput;
+        const user = database.users.find(user => {
+            if (user.username === userInput || user.email === userInput2) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return user;
+    },
     validateLogin() {
-        const user = database.users.find(user => user.username === dom.login.user.value());
+        const user = database.findUser(dom.login.user.value());
         if (user && user.password === dom.login.password.value()) {
-            return "Login ok"
+            return true;
         } else {
             dom.login.modal.changeState();
-            return "Login failed";
+            return false;
+        }
+    },
+    validateRegistration() {
+        const user = database.findUser(dom.register.username.value(), dom.register.email.value());
+        if (user) {
+            dom.register.modal.changeState();
+            return false;
+        } else {
+            return true;
         }
     }
 }
 
-dom.login.form.element.addEventListener("submit", (event) => {
-    const validUser = dom.login.user.validate();
-    const validPassword = dom.login.password.validate();
-    if (!validUser || !validUser) {
-        event.preventDefault();
-        if (!validUser) { dom.login.user.changeState("add", "error") };
-        if (!validPassword) { dom.login.password.changeState("add", "error") };
-        return;
-    }
-    return database.validateLogin();
-});
+if (dom.login.form.element) {
+    dom.login.form.element.addEventListener("submit", (event) => {
+        const validUser = dom.login.user.validate();
+        const validPassword = dom.login.password.validate();
+        if (!validUser || !validPassword) {
+            event.preventDefault();
+            if (!validUser) { dom.login.user.changeState("add", "error") };
+            if (!validPassword) { dom.login.password.changeState("add", "error") };
+            return;
+        }
+        if (!database.validateLogin()) {
+            event.preventDefault();
+            return;
+        } else {
+            return;
+        }
+    });
+    dom.login.modalToggles.elements.forEach(element => element.addEventListener("click", () => {
+        dom.login.modal.changeState();
+    }));
+    [dom.login.user, dom.login.password].forEach(input => input.element.addEventListener("input", () => {
+        input.changeState("remove", "error");
+    }));
+}
 
-dom.login.modalToggles.elements.forEach(element => element.addEventListener("click", () => {
-    dom.login.modal.changeState();
-}));
-
-[dom.login.user, dom.login.password].forEach(input => input.element.addEventListener("input", () => {
-    input.changeState("remove", "error");
-}))
+if (dom.register.form.element) {
+    dom.register.form.element.addEventListener("submit", (event) => {
+        const validEmail = dom.register.email.validate();
+        const validUser = (dom.register.username.validate() && dom.register.username.value().length >= 5) ? true : false;
+        const validPassword = dom.register.password.validate();
+        const validConfirmPassword = (dom.register.confirmPassword.validate() && dom.register.confirmPassword.value() === dom.register.password.value()) ? true : false;
+        if (!validEmail || !validUser || !validPassword || !validConfirmPassword) {
+            event.preventDefault();
+            if (!validEmail) { dom.register.email.changeState("add", "error") };
+            if (!validUser) { dom.register.username.changeState("add", "error") };
+            if (!validPassword) {
+                dom.register.password.changeState("add", "error");
+                return;
+            };
+            if (!validConfirmPassword) { dom.register.confirmPassword.changeState("add", "error") };
+            return;
+        }
+        if (!database.validateRegistration()) {
+            event.preventDefault();
+            return
+        } else {
+            return;
+        }
+    });
+    dom.register.modalToggles.elements.forEach(element => element.addEventListener("click", () => {
+        dom.register.modal.changeState();
+    }));
+    [dom.register.email, dom.register.username, dom.register.password, dom.register.confirmPassword].forEach(input => input.element.addEventListener("input", () => {
+        input.changeState("remove", "error");
+    }));
+}
