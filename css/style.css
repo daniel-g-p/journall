@@ -39,8 +39,11 @@
   font-weight: 700;
   text-decoration: none;
   transition: color 0.25s ease;
+  outline: none;
+  border: none;
 }
 .link:hover, .link:focus {
+  outline: none;
   color: #b2e5b2;
 }
 .link svg {
@@ -197,6 +200,9 @@ mark {
   border-color: #DF9F9F;
   padding-right: 3rem;
 }
+.form__input--error:hover {
+  border-color: #DF9F9F;
+}
 .form__input--error + .form__error-icon {
   opacity: 1;
   pointer-events: all;
@@ -236,8 +242,10 @@ mark {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .form__error-text {
-  margin-bottom: 0.5em;
   font-weight: 700;
+}
+.form__error-list {
+  margin-top: 0.5em;
 }
 .form__error-item:not(:last-child) {
   margin-bottom: 0.5em;
@@ -259,11 +267,10 @@ mark {
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
-.form__error-icon:hover, .form__error-icon--fixed {
-  cursor: pointer;
+.form__error-icon:hover {
   transform: scale(1.1);
 }
-.form__error-icon:hover + .form__error, .form__error-icon--fixed + .form__error {
+.form__error-icon:hover + .form__error {
   opacity: 1;
   transform: translateY(-0.5rem);
 }
@@ -282,11 +289,11 @@ mark {
   backdrop-filter: blur(0.25rem);
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.25s ease;
 }
-@media (min-width: 27.5rem) {
+@media (min-width: 20rem) {
   .modal {
-    padding: 0 2rem;
+    padding: 0 3rem;
   }
 }
 .modal--active {
@@ -297,8 +304,16 @@ mark {
 .modal--active > .modal__content {
   transform: scale(1);
 }
+.modal__background {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
 .modal__content {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   max-width: 24rem;
@@ -307,7 +322,7 @@ mark {
   border-radius: 0.25rem;
   box-shadow: 0 0.5rem 1rem #00000020;
   transform: scale(0.9);
-  transition: transform 0.5s ease;
+  transition: transform 0.25s ease;
 }
 .modal__close {
   position: absolute;

@@ -49,7 +49,10 @@ class Input extends DomElement {
         this.format = format;
     }
     validate() {
-        return !this.element.value && this.element.value.match(this.format) ? true : false;
+        return this.value() && this.value().match(this.format) ? true : false;
+    }
+    value() {
+        return this.element.value;
     }
 }
 
@@ -58,7 +61,8 @@ const dom = {
         form: new DomElement("form", "login"),
         user: new Input("user", "form__input"),
         password: new Input("password", "form__input"),
-        modal: new DomElement("modal", "login-failed")
+        modal: new DomElement("modal", "login-failed"),
+        modalToggles: new DomElementGroup("modal__background, .modal__close, .modal__button")
     }
 }
 
@@ -66,11 +70,34 @@ const database = {
     users: [{
         username: "daniel.gp",
         password: "Journall"
-    }]
+    }],
+    validateLogin() {
+        const user = database.users.find(user => user.username === dom.login.user.value());
+        if (user && user.password === dom.login.password.value()) {
+            return "Login ok"
+        } else {
+            dom.login.modal.changeState();
+            return "Login failed";
+        }
+    }
 }
 
-dom.login.form.element.addEventListener("submit", () => {
-    const user = dom.login.user.value;
-    const password = dom.login.password.value;
-    console.log(user, password);
+dom.login.form.element.addEventListener("submit", (event) => {
+    const validUser = dom.login.user.validate();
+    const validPassword = dom.login.password.validate();
+    if (!validUser || !validUser) {
+        event.preventDefault();
+        if (!validUser) { dom.login.user.changeState("add", "error") };
+        if (!validPassword) { dom.login.password.changeState("add", "error") };
+        return;
+    }
+    return database.validateLogin();
 });
+
+dom.login.modalToggles.elements.forEach(element => element.addEventListener("click", () => {
+    dom.login.modal.changeState();
+}));
+
+[dom.login.user, dom.login.password].forEach(input => input.element.addEventListener("input", () => {
+    input.changeState("remove", "error");
+}))

@@ -43,8 +43,11 @@
     font-weight: 700;
     text-decoration: none;
     transition: color 0.25s ease;
+    outline: none;
+    border: none;
     &:hover,
     &:focus {
+        outline: none;
         color: lighten($color-green, 5%);
     }
     svg {

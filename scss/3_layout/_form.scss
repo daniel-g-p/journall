@@ -75,6 +75,9 @@
         &--error {
             border-color: $color-red;
             padding-right: 3rem;
+            &:hover {
+                border-color: $color-red;
+            }
             &+.form__error-icon {
                 opacity: 1;
                 pointer-events: all;
@@ -117,8 +120,10 @@
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
     &__error-text {
-        margin-bottom: 0.5em;
         font-weight: 700;
+    }
+    &__error-list {
+        margin-top: 0.5em;
     }
     &__error-item {
         &:not(:last-child) {
@@ -141,9 +146,7 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.25s ease, transform 0.25s ease;
-        &:hover,
-        &--fixed {
-            cursor: pointer;
+        &:hover {
             transform: scale(1.1);
             &+.form__error {
                 opacity: 1;
