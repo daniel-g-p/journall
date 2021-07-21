@@ -12,4 +12,14 @@
             padding: 0 2rem;
         }
     }
+    &--grid {
+        display: grid;
+        width: 100vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: [navigation-start] max-content [navigation-end header-start] max-content [header-end main-start] max-content [main-end];
+    }
+    &--fixed {
+        height: 100vh;
+        overflow: hidden;
+    }
 }

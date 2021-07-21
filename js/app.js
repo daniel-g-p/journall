@@ -85,6 +85,11 @@ const dom = {
         resetCode: new Input("reset-code", "form__input", /^[0-9]{6}$/),
         newPassword: new Input("password", "form__input", /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#.?!@$%^&*-]).{8,}$/),
         confirmPassword: new Input("confirm-password", "form__input")
+    },
+    navigation: {
+        container: new DomElement("container"),
+        toggle: new DomElement("navigation__toggle"),
+        menu: new DomElement("navigation__menu")
     }
 }
 
@@ -241,4 +246,12 @@ if (dom.reset.step1.element) {
         dom.reset.modal1.changeState("remove", "active");
         dom.reset.modal2.changeState("remove", "active");
     }));
+}
+
+if (dom.navigation.toggle) {
+    dom.navigation.toggle.element.addEventListener("click", () => {
+        dom.navigation.toggle.changeState();
+        dom.navigation.menu.changeState();
+        dom.navigation.container.changeState("toggle", "fixed");
+    })
 }

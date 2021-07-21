@@ -1,0 +1,138 @@
+@use "../1_abstracts/" as *;
+.navigation {
+    position: relative;
+    background-color: $color-grey-25;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem;
+    &__logo {
+        position: relative;
+        z-index: 1;
+        height: 2rem;
+    }
+    &__toggle {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 2rem;
+        height: 1.5rem;
+        color: $color-white;
+        &--active {
+            &>.navigation__toggle-element {
+                &--1 {
+                    transform: rotate(-45deg);
+                    top: 50%;
+                }
+                &--2 {
+                    transform: translate(0.125rem, -50%)
+                }
+                &--3 {
+                    transform: rotate(45deg);
+                    bottom: 50%;
+                    left: 0;
+                }
+            }
+        }
+    }
+    &__toggle-element {
+        position: absolute;
+        display: block;
+        height: 0.2rem;
+        background-color: currentColor;
+        border-radius: 0.1rem;
+        transition: transform 0.25s ease, top 0.25s ease, bottom 0.25s ease, left 0.25s ease;
+        &--1 {
+            transform-origin: top left;
+            top: 0;
+            left: 0;
+            width: 67%;
+        }
+        &--2 {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+        }
+        &--3 {
+            transform-origin: bottom left;
+            bottom: 0;
+            left: 33%;
+            width: 67%;
+        }
+    }
+    &__menu {
+        position: fixed;
+        top: 0;
+        right: 100%;
+        width: 100vw;
+        height: 100vh;
+        background-color: $color-grey-25;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: right 0.5s ease;
+        &--active {
+            right: 0;
+        }
+    }
+    &__item {
+        position: relative;
+        padding: 0.75em 1.5em;
+        display: grid;
+        grid-template-columns: 2em max-content;
+        gap: 0.75em;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        color: $color-white;
+        text-decoration: none;
+        transition: color 0.5s ease;
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 0.5rem;
+            height: 0;
+            background-color: $color-green;
+            transition: width 0.5s ease, height 0.25s ease 0.5s, background-color 0.5s ease;
+        }
+        &--active {
+            color: $color-white;
+            &>.navigation__icon {
+                fill: $color-white;
+            }
+            &::after {
+                width: 100%;
+                height: 100%;
+                transition: height 0.25s ease, width 0.5s ease 0.25s, background-color 0.5s ease;
+            }
+        }
+        &:hover {
+            color: $color-green;
+            &>.navigation__icon {
+                fill: $color-green;
+            }
+            &::after {
+                background-color: $color-white;
+                width: 100%;
+                height: 100%;
+                transition: height 0.25s ease, width 0.5s ease 0.25s, background-color 0.5s ease;
+            }
+        }
+    }
+    &__icon {
+        justify-self: center;
+        height: 1.5em;
+        fill: $color-green;
+        transition: fill 0.5s ease;
+    }
+    &__text {
+        display: none;
+    }
+}
