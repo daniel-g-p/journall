@@ -19,7 +19,6 @@
     }
     &--active {
         pointer-events: all;
-        visibility: visible;
         opacity: 1;
         &>.modal__content {
             transform: scale(1);

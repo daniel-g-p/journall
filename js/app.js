@@ -72,30 +72,26 @@ const dom = {
         confirmPassword: new Input("confirm-password", "form__input"),
         modal: new DomElement("modal", "registration-failed"),
         modalToggles: new DomElementGroup("modal__background, .modal__close, .modal__button")
+    },
+    reset: {
+        main: new DomElement("reset-password"),
+        step1: new DomElement("reset-password__step", "1"),
+        step2: new DomElement("reset-password__step", "2"),
+        step3: new DomElement("reset-password__step", "3"),
+        modal1: new DomElement("modal", "incorrect-email"),
+        modal2: new DomElement("modal", "incorrect-code"),
+        modalToggles: new DomElementGroup("modal__background, .modal__close, .modal__button"),
+        email: new Input("email", "form__input", /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        resetCode: new Input("reset-code", "form__input", /^[0-9]{6}$/),
+        newPassword: new Input("password", "form__input", /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#.?!@$%^&*-]).{8,}$/),
+        confirmPassword: new Input("confirm-password", "form__input")
     }
 }
 
-
 const database = {
     users: [{
-        email: "a@gmail.com",
-        username: "alfred",
-        password: "Journall"
-    }, {
-        email: "b@gmail.com",
-        username: "b",
-        password: "Journall"
-    }, {
-        email: "c@gmail.com",
-        username: "c",
-        password: "Journall"
-    }, {
-        email: "d@gmail.com",
-        username: "d",
-        password: "Journall"
-    }, {
-        email: "e@gmail.com",
-        username: "e",
+        email: "daniel.giustini@gmail.com",
+        username: "daniel.gp",
         password: "Journall"
     }],
     findUser(userInput, userInput2) {
@@ -108,6 +104,9 @@ const database = {
             }
         });
         return user;
+    },
+    findUserIndex(user) {
+        return database.users.indexOf(user);
     },
     validateLogin() {
         const user = database.findUser(dom.login.user.value());
@@ -142,9 +141,8 @@ if (dom.login.form.element) {
         if (!database.validateLogin()) {
             event.preventDefault();
             return;
-        } else {
-            return;
         }
+        return;
     });
     dom.login.modalToggles.elements.forEach(element => element.addEventListener("click", () => {
         dom.login.modal.changeState();
@@ -164,24 +162,83 @@ if (dom.register.form.element) {
             event.preventDefault();
             if (!validEmail) { dom.register.email.changeState("add", "error") };
             if (!validUser) { dom.register.username.changeState("add", "error") };
-            if (!validPassword) {
-                dom.register.password.changeState("add", "error");
-                return;
-            };
+            if (!validPassword) { dom.register.password.changeState("add", "error"); };
             if (!validConfirmPassword) { dom.register.confirmPassword.changeState("add", "error") };
             return;
         }
         if (!database.validateRegistration()) {
             event.preventDefault();
             return
-        } else {
-            return;
         }
+        return;
     });
     dom.register.modalToggles.elements.forEach(element => element.addEventListener("click", () => {
         dom.register.modal.changeState();
     }));
     [dom.register.email, dom.register.username, dom.register.password, dom.register.confirmPassword].forEach(input => input.element.addEventListener("input", () => {
         input.changeState("remove", "error");
+    }));
+}
+
+if (dom.reset.step1.element) {
+    dom.reset.step1.element.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const validEmail = dom.reset.email.validate();
+        if (!validEmail) {
+            dom.reset.email.changeState("add", "error");
+            return;
+        };
+        const user = database.findUser(dom.reset.email.value());
+        if (!user) {
+            dom.reset.modal1.changeState("toggle", "active");
+            return;
+        }
+        dom.reset.step1.changeState("replace", "exit", "active");
+        dom.reset.step2.changeState();
+        let randomCode = "";
+        for (i = 0; i < 6; i++) {
+            randomCode += Math.floor(Math.random() * 10);
+        }
+        user.resetCode = randomCode;
+        return;
+    });
+    dom.reset.step2.element.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const user = database.findUser(dom.reset.email.value());
+        console.log(user);
+        const requiredCode = user.resetCode;
+        const validCode = dom.reset.resetCode.validate();
+        if (!validCode) {
+            dom.reset.resetCode.changeState("add", "error");
+            return;
+        }
+        if (dom.reset.resetCode.value() !== requiredCode) {
+            dom.reset.modal2.changeState();
+            return;
+        }
+        dom.reset.step2.changeState("replace", "exit", "active");
+        dom.reset.step3.changeState();
+        return;
+    });
+    dom.reset.step3.element.addEventListener("submit", (event) => {
+        const user = database.findUser(dom.reset.email.value());
+        const validPassword = dom.reset.newPassword.validate();
+        const validConfirmPassword = dom.reset.confirmPassword.value() === dom.reset.newPassword.value() ? true : false;
+        if (!validPassword || !validConfirmPassword) {
+            event.preventDefault();
+            if (!validPassword) { dom.reset.newPassword.changeState("add", "error") };
+            if (!validConfirmPassword) { dom.reset.confirmPassword.changeState("add", "error") };
+            return;
+        }
+        user.password = dom.reset.newPassword.value();
+        delete user.resetCode;
+        return;
+    });
+    [dom.reset.email, dom.reset.resetCode, dom.reset.newPassword, dom.reset.confirmPassword].forEach(input => input.element.addEventListener("input", () => {
+        input.changeState("remove", "error");
+    }));
+    dom.reset.modalToggles.elements.forEach(element => element.addEventListener("click", () => {
+        dom.reset.modal1.changeState("remove", "active");
+        dom.reset.modal2.changeState("remove", "active");
     }));
 }
