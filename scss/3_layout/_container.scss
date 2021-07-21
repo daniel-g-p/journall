@@ -1,9 +1,9 @@
 @use "../1_abstracts/" as *;
 .container {
+    min-height: 100vh;
     &--center {
         background-color: $color-green-light;
         width: 100vw;
-        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -15,8 +15,13 @@
     &--grid {
         display: grid;
         width: 100vw;
+        height: 100vh;
         grid-template-columns: 1fr;
         grid-template-rows: [navigation-start] max-content [navigation-end header-start] max-content [header-end main-start] max-content [main-end];
+        @include responsive($screen-tablet-l) {
+            grid-template-columns: [navigation-start] max-content [navigation-end content-start] 1fr [content-end];
+            grid-template-rows: [header-start] max-content [header-end main-start] 1fr [main-end];
+        }
     }
     &--fixed {
         height: 100vh;

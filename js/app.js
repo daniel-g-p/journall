@@ -95,8 +95,8 @@ const dom = {
 
 const database = {
     users: [{
-        email: "daniel.giustini@gmail.com",
-        username: "daniel.gp",
+        email: "test@gmail.com",
+        username: "testuser",
         password: "Journall"
     }],
     findUser(userInput, userInput2) {
