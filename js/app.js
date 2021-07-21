@@ -90,6 +90,9 @@ const dom = {
         container: new DomElement("container"),
         toggle: new DomElement("navigation__toggle"),
         menu: new DomElement("navigation__menu")
+    },
+    home: {
+        mood: new DomElement("intro__select", "", "select")
     }
 }
 
@@ -162,7 +165,7 @@ if (dom.register.form.element) {
         const validEmail = dom.register.email.validate();
         const validUser = (dom.register.username.validate() && dom.register.username.value().length >= 5) ? true : false;
         const validPassword = dom.register.password.validate();
-        const validConfirmPassword = (dom.register.confirmPassword.validate() && dom.register.confirmPassword.value() === dom.register.password.value()) ? true : false;
+        const validConfirmPassword = dom.register.confirmPassword.value() === dom.register.password.value() ? true : false;
         if (!validEmail || !validUser || !validPassword || !validConfirmPassword) {
             event.preventDefault();
             if (!validEmail) { dom.register.email.changeState("add", "error") };
@@ -248,10 +251,16 @@ if (dom.reset.step1.element) {
     }));
 }
 
-if (dom.navigation.toggle) {
+if (dom.navigation.toggle.element) {
     dom.navigation.toggle.element.addEventListener("click", () => {
         dom.navigation.toggle.changeState();
         dom.navigation.menu.changeState();
         dom.navigation.container.changeState("toggle", "fixed");
     })
+}
+
+if (dom.home.mood.element) {
+    dom.home.mood.element.addEventListener("click", () => {
+        dom.home.mood.changeState();
+    });
 }

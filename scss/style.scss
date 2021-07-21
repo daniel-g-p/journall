@@ -5,8 +5,12 @@
 @use "./3_layout/form";
 @use "./3_layout/modal";
 @use "./3_layout/navigation";
-@use "./3_layout/header";
 @use "./3_layout/main";
+@use "./3_layout/header";
+@use "./3_layout/content";
 @use "./3_layout/footer";
 @use "./4_components/buttons";
+@use "./4_components/intro";
+@use "./4_components/card";
+@use "./4_components/select";
 @use "./5_pages/reset_password";

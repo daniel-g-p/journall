@@ -1,0 +1,23 @@
+@use "../1_abstracts/" as *;
+.intro {
+    background-color: $color-green;
+    padding: 1.5rem;
+    color: $color-white;
+    font-size: 1.25rem;
+    &--home &__description {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__text {
+        margin-top: 0.75rem;
+        margin-right: 1rem;
+    }
+    &__heading {
+        margin-bottom: 0.75rem;
+    }
+    &__select {
+        margin-top: 0.75rem;
+        flex: 0 0 12rem;
+    }
+}

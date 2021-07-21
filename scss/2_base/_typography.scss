@@ -26,8 +26,19 @@
     font-family: "Pacifico", sans-serif;
 }
 
-.heading-2 {
+.heading-1 {
     font-size: 2rem;
+    line-height: 1.25;
+    @include responsive($screen-tablet-s) {
+        font-size: 3rem;
+    }
+}
+
+.heading-2 {
+    font-size: 1.5rem;
+    @include responsive($screen-tablet-s) {
+        font-size: 2.25rem;
+    }
 }
 
 .paragraph {

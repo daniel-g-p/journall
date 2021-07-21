@@ -1,0 +1,5 @@
+@use "../1_abstracts/" as *;
+.card {
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem $color-shadow;
+}

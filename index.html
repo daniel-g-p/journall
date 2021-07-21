@@ -36,7 +36,7 @@
                     <span class="navigation__link-text">Favorites</span>
                 </a>
                 <a href="stories.html" class="navigation__item">
-                    <svg id="journal" viewbox="0 0 15 16" class="navigation__icon">
+                    <svg viewbox="0 0 15 16" class="navigation__icon">
                         <path
                             d="M14.41.59A2,2,0,0,0,13,0H3A2,2,0,0,0,1.59.59,2,2,0,0,0,1,2V3H2V2a1,1,0,0,1,.29-.71A1,1,0,0,1,3,1H13a1,1,0,0,1,.71.29A1,1,0,0,1,14,2V14a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V13H1v1a2,2,0,0,0,2,2H13a2,2,0,0,0,2-2V2A2,2,0,0,0,14.41.59Z" />
                         <path
@@ -49,7 +49,7 @@
                     <span class="navigation__link-text">My Stories</span>
                 </a>
                 <a href="settings.html" class="navigation__item">
-                    <svg id="settings" viewbox="0 0 16 16" class="navigation__icon">
+                    <svg viewbox="0 0 16 16" class="navigation__icon">
                         <path
                             d="M8,4.75a3.24,3.24,0,1,0,2.3,1A3.27,3.27,0,0,0,8,4.75ZM9.59,9.59A2.25,2.25,0,1,1,10.25,8,2.25,2.25,0,0,1,9.59,9.59Z" />
                         <path
@@ -58,7 +58,7 @@
                     <span class="navigation__link-text">Account</span>
                 </a>
                 <a href="about.html" class="navigation__item">
-                    <svg id="info" viewbox="0 0 16 16" class="navigation__icon">
+                    <svg viewbox="0 0 16 16" class="navigation__icon">
                         <path
                             d="M13.66,2.34A8,8,0,1,0,16,8,8,8,0,0,0,13.66,2.34ZM13,13A7,7,0,1,1,15,8,7,7,0,0,1,13,13Z" />
                         <path
@@ -68,7 +68,7 @@
                     <span class="navigation__link-text">About</span>
                 </a>
                 <a href="login.html" class="navigation__item">
-                    <svg id="logout" viewbox="0 0 21.33 16" class="navigation__icon">
+                    <svg viewbox="0 0 21.33 16" class="navigation__icon">
                         <path
                             d="M20.75.59A2,2,0,0,0,19.33,0H8.67a2,2,0,0,0-2,2V4.67a.67.67,0,0,0,1.14.47A.7.7,0,0,0,8,4.67V2a.63.63,0,0,1,.2-.47.63.63,0,0,1,.47-.2H19.33a.67.67,0,0,1,.48.2A.67.67,0,0,1,20,2V14a.67.67,0,0,1-.19.47.67.67,0,0,1-.48.2H8.67A.68.68,0,0,1,8,14V11.33a.67.67,0,0,0-1.14-.47.7.7,0,0,0-.19.47V14a2,2,0,0,0,2,2H19.33a2,2,0,0,0,2-2V2A2,2,0,0,0,20.75.59Z" />
                         <path
@@ -79,8 +79,48 @@
             </nav>
             <p class="navigation__text">Created with &#9829; by Daniel Giustini Perez</p>
         </aside>
-        <header class="header header--home"></header>
-        <main class="main main--home"></main>
+        <main class="main main--home">
+            <header class="header header--home">
+                <div class="intro intro--home card">
+                    <h1 class="intro__heading heading-1">Great to see you!</h1>
+                    <div class="intro__description">
+                        <span class="intro__text">Today I could use some:</span>
+                        <div class="intro__select select select--transparent">
+                            <div class="select__input">
+                                <span class="select__name">Category</span>
+                                <svg viewbox="0 0 29.71 16" class="select__icon">
+                                    <path
+                                        d="M29.62.71a1,1,0,0,0-.24-.37A1.19,1.19,0,0,0,29,.09,1,1,0,0,0,28.57,0a1.12,1.12,0,0,0-.44.09,1.05,1.05,0,0,0-.37.25l-12.9,12.9L2,.34A.94.94,0,0,0,1.58.09,1.12,1.12,0,0,0,1.14,0,1.07,1.07,0,0,0,.71.09.94.94,0,0,0,.34.34.94.94,0,0,0,.09.71,1.07,1.07,0,0,0,0,1.14a1.12,1.12,0,0,0,.09.44A.94.94,0,0,0,.34,2L14.05,15.66a.94.94,0,0,0,.37.25,1.12,1.12,0,0,0,.44.09,1.07,1.07,0,0,0,.43-.09.94.94,0,0,0,.37-.25L29.38,2a1,1,0,0,0,.24-.37,1.12,1.12,0,0,0,.09-.44A1.07,1.07,0,0,0,29.62.71Z" />
+                                </svg>
+                            </div>
+                            <div class="select__list card">
+                                <input type="radio" class="select__radio" name="mood" id="motivation">
+                                <label for="motivation" class="select__label">Motivation</label>
+                                <input type="radio" class="select__radio" name="mood" id="inspiration">
+                                <label for="inspiration" class="select__label">Inspiration</label>
+                                <input type="radio" class="select__radio" name="mood" id="happiness">
+                                <label for="happiness" class="select__label">Happiness</label>
+                                <input type="radio" class="select__radio" name="mood" id="tranquillity">
+                                <label for="tranquillity" class="select__label">Tranquillity</label>
+                                <input type="radio" class="select__radio" name="mood" id="gratitude">
+                                <label for="gratitude" class="select__label">Gratitude</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote card">
+                    <h2 class="quote__heading">Quote of the day</h2>
+                    <blockquote class="quote__text">"Good players work out, great players outwork."</blockquote>
+                    <p class="quote__author">- Damian Lillard</p>
+                    <div class="quote__like">
+                        <svg viewbox="0 0 16 16" class="quote__icon">
+                            <path d="M8,1.4C3.56-3.46-7.53,5.05,8,16,23.53,5.05,12.44-3.46,8,1.4Z" />
+                        </svg>
+                    </div>
+                </div>
+            </header>
+            <section class="content content--home"></section>
+        </main>
         <footer class="footer">Created with &#9829; by Daniel Giustini Perez</footer>
     </div>
     <script src="js/app.js"></script>
