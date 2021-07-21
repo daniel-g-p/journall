@@ -5,7 +5,7 @@
     text-align: center;
     color: $color-grey-50;
     line-height: 1.25;
-    @include responsive($screen-tablet-l) {
+    @include responsive($screen-desktop-s) {
         display: none;
     }
 }

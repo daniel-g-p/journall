@@ -18,8 +18,8 @@
         height: 100vh;
         grid-template-columns: 1fr;
         grid-template-rows: [navigation-start] max-content [navigation-end header-start] max-content [header-end main-start] max-content [main-end];
-        @include responsive($screen-tablet-l) {
-            grid-template-columns: [navigation-start] max-content [navigation-end content-start] 1fr [content-end];
+        @include responsive($screen-desktop-s) {
+            grid-template-columns: [navigation-start] min-content [navigation-end content-start] 1fr [content-end];
             grid-template-rows: [header-start] max-content [header-end main-start] 1fr [main-end];
         }
     }

@@ -8,9 +8,12 @@
     width: 100%;
     padding: 1.5rem;
     @include responsive($screen-mobile-l) {
-        padding: 2.25rem;
+        padding: 1.5rem 3rem;
     }
-    @include responsive($screen-tablet-l) {
+    @include responsive($screen-tablet-m) {
+        padding: 2.25rem 4.5rem;
+    }
+    @include responsive($screen-desktop-s) {
         padding: 3rem 0;
         flex-direction: column;
         grid-row: header-start / content-end;
@@ -22,13 +25,14 @@
         height: 2rem;
     }
     &__toggle {
+        cursor: pointer;
         position: relative;
         z-index: 1;
         display: block;
         width: 2rem;
         height: 1.5rem;
         color: $color-white;
-        @include responsive($screen-tablet-l) {
+        @include responsive($screen-desktop-s) {
             display: none;
         }
         &--active {
@@ -85,7 +89,7 @@
         flex-direction: column;
         justify-content: center;
         transition: right 0.5s ease;
-        @include responsive($screen-tablet-l) {
+        @include responsive($screen-desktop-s) {
             position: relative;
             right: 0;
             width: auto;
@@ -110,6 +114,16 @@
         color: $color-white;
         text-decoration: none;
         transition: color 0.25s ease;
+        @include responsive($screen-mobile-l) {
+            padding-left: 3rem;
+        }
+        @include responsive($screen-tablet-m) {
+            padding-left: 4.5rem;
+        }
+        @include responsive($screen-desktop-s) {
+            padding-left: 1.5rem;
+            padding-right: 4.5rem;
+        }
         &:not(:last-child) {
             margin-bottom: 0.5rem;
         }
@@ -121,7 +135,7 @@
             height: 0;
             background-color: $color-green;
             transition: width 0.25s ease, height 0.25s ease 0.25s, background-color 0.25s ease;
-            @include responsive($screen-tablet-l) {
+            @include responsive($screen-desktop-s) {
                 z-index: -1;
             }
         }
@@ -158,8 +172,10 @@
     &__text {
         display: none;
         color: $color-grey-50;
-        padding: 0 1.5rem;
-        @include responsive($screen-tablet-l) {
+        padding: 0 3rem;
+        line-height: 1.25;
+        text-align: center;
+        @include responsive($screen-desktop-s) {
             display: block;
         }
     }

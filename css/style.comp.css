@@ -102,9 +102,9 @@ mark {
   grid-template-columns: 1fr;
   grid-template-rows: [navigation-start] max-content [navigation-end header-start] max-content [header-end main-start] max-content [main-end];
 }
-@media (min-width: 57.5rem) {
+@media (min-width: 65rem) {
   .container--grid {
-    grid-template-columns: [navigation-start] max-content [navigation-end content-start] 1fr [content-end];
+    grid-template-columns: [navigation-start] min-content [navigation-end content-start] 1fr [content-end];
     grid-template-rows: [header-start] max-content [header-end main-start] 1fr [main-end];
   }
 }
@@ -369,10 +369,15 @@ mark {
 }
 @media (min-width: 35rem) {
   .navigation {
-    padding: 2.25rem;
+    padding: 1.5rem 3rem;
   }
 }
-@media (min-width: 57.5rem) {
+@media (min-width: 50rem) {
+  .navigation {
+    padding: 2.25rem 4.5rem;
+  }
+}
+@media (min-width: 65rem) {
   .navigation {
     padding: 3rem 0;
     flex-direction: column;
@@ -386,6 +391,7 @@ mark {
   height: 2rem;
 }
 .navigation__toggle {
+  cursor: pointer;
   position: relative;
   z-index: 1;
   display: block;
@@ -393,7 +399,7 @@ mark {
   height: 1.5rem;
   color: #FFFFFF;
 }
-@media (min-width: 57.5rem) {
+@media (min-width: 65rem) {
   .navigation__toggle {
     display: none;
   }
@@ -448,7 +454,7 @@ mark {
   justify-content: center;
   transition: right 0.5s ease;
 }
-@media (min-width: 57.5rem) {
+@media (min-width: 65rem) {
   .navigation__menu {
     position: relative;
     right: 0;
@@ -475,6 +481,22 @@ mark {
   text-decoration: none;
   transition: color 0.25s ease;
 }
+@media (min-width: 35rem) {
+  .navigation__item {
+    padding-left: 3rem;
+  }
+}
+@media (min-width: 50rem) {
+  .navigation__item {
+    padding-left: 4.5rem;
+  }
+}
+@media (min-width: 65rem) {
+  .navigation__item {
+    padding-left: 1.5rem;
+    padding-right: 4.5rem;
+  }
+}
 .navigation__item:not(:last-child) {
   margin-bottom: 0.5rem;
 }
@@ -487,7 +509,7 @@ mark {
   background-color: #9FDF9F;
   transition: width 0.25s ease, height 0.25s ease 0.25s, background-color 0.25s ease;
 }
-@media (min-width: 57.5rem) {
+@media (min-width: 65rem) {
   .navigation__item::after {
     z-index: -1;
   }
@@ -524,9 +546,11 @@ mark {
 .navigation__text {
   display: none;
   color: #808080;
-  padding: 0 1.5rem;
+  padding: 0 3rem;
+  line-height: 1.25;
+  text-align: center;
 }
-@media (min-width: 57.5rem) {
+@media (min-width: 65rem) {
   .navigation__text {
     display: block;
   }
@@ -553,7 +577,7 @@ mark {
   color: #808080;
   line-height: 1.25;
 }
-@media (min-width: 57.5rem) {
+@media (min-width: 65rem) {
   .footer {
     display: none;
   }
