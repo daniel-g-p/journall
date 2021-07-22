@@ -17,8 +17,7 @@
   font-style: normal;
 }
 .heading-1,
-.heading-2,
-.heading-3 {
+.heading-2 {
   font-family: "Pacifico", sans-serif;
 }
 
@@ -38,6 +37,16 @@
 @media (min-width: 42.5rem) {
   .heading-2 {
     font-size: 2.25rem;
+  }
+}
+
+.heading-3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+@media (min-width: 42.5rem) {
+  .heading-3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -98,7 +107,7 @@ mark {
   min-height: 100vh;
 }
 .container--center {
-  background-color: #F7FCF7;
+  background-color: #F4FBF4;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -573,15 +582,43 @@ mark {
 }
 
 .main {
-  background-color: #F7FCF7;
+  background-color: #F4FBF4;
   display: block;
   width: 100%;
   padding: 1.5rem;
 }
+@media (min-width: 35rem) {
+  .main {
+    padding: 3rem;
+  }
+}
+@media (min-width: 50rem) {
+  .main {
+    padding: 4.5rem;
+  }
+}
+@media (min-width: 65rem) {
+  .main {
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}
 
 .header {
-  display: block;
+  display: grid;
   width: 100%;
+  grid-template-columns: 1fr;
+  gap: 1.5rem 1.5rem;
+}
+@media (min-width: 42.5rem) {
+  .header {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.content {
+  background-color: #F4FBF4;
+  height: 100vh;
 }
 
 .footer {
@@ -640,6 +677,9 @@ mark {
   padding: 1.5rem;
   color: #FFFFFF;
   font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .intro--home .intro__description {
   display: flex;
@@ -658,6 +698,47 @@ mark {
   flex: 0 0 12rem;
 }
 
+.quote {
+  background-color: #404040;
+  padding: 1.5rem;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.quote__heading {
+  margin-bottom: 1rem;
+}
+.quote__text {
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.quote__author {
+  margin-bottom: 1rem;
+}
+.quote__like {
+  align-self: flex-end;
+  background-color: #FFFFFF;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.quote__like:hover, .quote__like--checked {
+  background-color: #9FDF9F;
+}
+.quote__like:hover .quote__icon, .quote__like--checked .quote__icon {
+  fill: #FFFFFF;
+}
+.quote__icon {
+  fill: #404040;
+  height: 50%;
+}
+
 .card {
   border-radius: 0.25rem;
   box-shadow: 0 0.5rem 1rem #00000025;
@@ -667,18 +748,24 @@ mark {
   position: relative;
 }
 .select--transparent .select__input {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.select--transparent .select__input:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .select--transparent .select__name {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.8);
 }
 .select--transparent .select__icon {
-  fill: rgba(255, 255, 255, 0.75);
+  fill: rgba(255, 255, 255, 0.8);
 }
 .select--active .select__list {
   pointer-events: all;
   opacity: 1;
   transform: translateY(0);
+}
+.select--active.select--transparent .select__input {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .select__input {
   border-radius: 0.25rem;
@@ -687,6 +774,7 @@ mark {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition: background-color 0.25s ease;
 }
 .select__icon {
   height: 0.5em;
@@ -722,6 +810,69 @@ mark {
 }
 .select__label:hover {
   color: #c5ecc5;
+}
+
+.story {
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.story__heading {
+  color: #9FDF9F;
+  margin-bottom: 0.5rem;
+}
+.story__label {
+  color: #BFBFBF;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.story__text {
+  margin-bottom: 3rem;
+}
+.story__controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(159, 223, 159, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+.story__like {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.25rem #00000025;
+}
+.story__number {
+  padding: 0 0.5rem 0 0.75rem;
+  font-weight: 700;
+  color: #9FDF9F;
+}
+.story__icon-box {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9FDF9F;
+}
+.story__icon {
+  height: 1rem;
+  fill: #FFFFFF;
+}
+
+.separator {
+  width: 100%;
+  height: 0.125rem;
+  background-color: rgba(159, 223, 159, 0.1);
+  display: block;
+  margin: 1.5rem 0;
 }
 
 .reset-password {

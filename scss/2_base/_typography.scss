@@ -21,8 +21,7 @@
 }
 
 .heading-1,
-.heading-2,
-.heading-3 {
+.heading-2 {
     font-family: "Pacifico", sans-serif;
 }
 
@@ -38,6 +37,14 @@
     font-size: 1.5rem;
     @include responsive($screen-tablet-s) {
         font-size: 2.25rem;
+    }
+}
+
+.heading-3 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    @include responsive($screen-tablet-s) {
+        font-size: 1.5rem;
     }
 }
 

@@ -84,16 +84,18 @@
                 <div class="intro intro--home card">
                     <h1 class="intro__heading heading-1">Great to see you!</h1>
                     <div class="intro__description">
-                        <span class="intro__text">Today I could use some:</span>
+                        <span class="intro__text">Today I need:</span>
                         <div class="intro__select select select--transparent">
                             <div class="select__input">
-                                <span class="select__name">Category</span>
+                                <span class="select__name">Anything</span>
                                 <svg viewbox="0 0 29.71 16" class="select__icon">
                                     <path
                                         d="M29.62.71a1,1,0,0,0-.24-.37A1.19,1.19,0,0,0,29,.09,1,1,0,0,0,28.57,0a1.12,1.12,0,0,0-.44.09,1.05,1.05,0,0,0-.37.25l-12.9,12.9L2,.34A.94.94,0,0,0,1.58.09,1.12,1.12,0,0,0,1.14,0,1.07,1.07,0,0,0,.71.09.94.94,0,0,0,.34.34.94.94,0,0,0,.09.71,1.07,1.07,0,0,0,0,1.14a1.12,1.12,0,0,0,.09.44A.94.94,0,0,0,.34,2L14.05,15.66a.94.94,0,0,0,.37.25,1.12,1.12,0,0,0,.44.09,1.07,1.07,0,0,0,.43-.09.94.94,0,0,0,.37-.25L29.38,2a1,1,0,0,0,.24-.37,1.12,1.12,0,0,0,.09-.44A1.07,1.07,0,0,0,29.62.71Z" />
                                 </svg>
                             </div>
                             <div class="select__list card">
+                                <input type="radio" class="select__radio" name="mood" id="anything">
+                                <label for="anything" class="select__label">Anything</label>
                                 <input type="radio" class="select__radio" name="mood" id="motivation">
                                 <label for="motivation" class="select__label">Motivation</label>
                                 <input type="radio" class="select__radio" name="mood" id="inspiration">
@@ -109,7 +111,7 @@
                     </div>
                 </div>
                 <div class="quote card">
-                    <h2 class="quote__heading">Quote of the day</h2>
+                    <h3 class="quote__heading heading-3">Quote of the day</h3>
                     <blockquote class="quote__text">"Good players work out, great players outwork."</blockquote>
                     <p class="quote__author">- Damian Lillard</p>
                     <div class="quote__like">
@@ -119,7 +121,29 @@
                     </div>
                 </div>
             </header>
-            <section class="content content--home"></section>
+            <div class="separator"></div>
+            <section class="content content--home">
+                <div class="story card">
+                    <h3 class="story__heading heading-3">An exciting story title</h3>
+                    <p class="story__label">22/07/2021</p>
+                    <p class="story__text paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aut
+                        sequi cumque harum placeat sapiente et possimus eveniet vero! Commodi, illum sint. Facilis,
+                        doloremque? Optio ullam veniam dolorum accusantium ipsa!</p>
+                    <div class="story__controls">
+                        <div class="story__links">
+                            <a href="/" class="story__link link">Read</a>
+                        </div>
+                        <div class="story__like">
+                            <div class="story__number">54</div>
+                            <div class="story__icon-box">
+                                <svg viewbox="0 0 16 16" class="story__icon">
+                                    <path d="M8,1.4C3.56-3.46-7.53,5.05,8,16,23.53,5.05,12.44-3.46,8,1.4Z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer class="footer">Created with &#9829; by Daniel Giustini Perez</footer>
     </div>

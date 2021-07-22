@@ -4,4 +4,14 @@
     display: block;
     width: 100%;
     padding: 1.5rem;
+    @include responsive($screen-mobile-l) {
+        padding: 3rem;
+    }
+    @include responsive($screen-tablet-m) {
+        padding: 4.5rem;
+    }
+    @include responsive($screen-desktop-s) {
+        height: 100vh;
+        overflow-y: scroll;
+    }
 }

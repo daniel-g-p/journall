@@ -92,7 +92,9 @@ const dom = {
         menu: new DomElement("navigation__menu")
     },
     home: {
-        mood: new DomElement("intro__select", "", "select")
+        mood: new DomElement("intro__select", "", "select"),
+        selectedCategory: new DomElement("select__name"),
+        categories: new DomElementGroup("select__label")
     }
 }
 
@@ -263,4 +265,8 @@ if (dom.home.mood.element) {
     dom.home.mood.element.addEventListener("click", () => {
         dom.home.mood.changeState();
     });
+    dom.home.categories.elements.forEach(element => element.addEventListener("click", () => {
+        dom.home.selectedCategory.element.innerText = element.innerHTML;
+        dom.home.mood.changeState();
+    }))
 }

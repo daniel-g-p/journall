@@ -1,1 +1,5 @@
 @use "../1_abstracts/" as *;
+.content {
+    background-color: $color-green-light;
+    height: 100vh;
+}

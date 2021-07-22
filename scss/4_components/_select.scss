@@ -1,19 +1,31 @@
 @use "../1_abstracts/" as *;
 .select {
     position: relative;
-    &--transparent &__input {
-        background-color: rgba($color-white, 0.25);
+    &--transparent {
+        .select__input {
+            background-color: rgba($color-white, 0.2);
+            &:hover {
+                background-color: rgba($color-white, 0.3);
+            }
+        }
+        .select__name {
+            color: rgba($color-white, 0.8);
+        }
+        .select__icon {
+            fill: rgba($color-white, 0.8);
+        }
     }
-    &--transparent &__name {
-        color: rgba($color-white, 0.75);
-    }
-    &--transparent &__icon {
-        fill: rgba($color-white, 0.75);
-    }
-    &--active &__list {
-        pointer-events: all;
-        opacity: 1;
-        transform: translateY(0);
+    &--active {
+        .select__list {
+            pointer-events: all;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &.select--transparent {
+            .select__input {
+                background-color: rgba($color-white, 0.3);
+            }
+        }
     }
     &__input {
         border-radius: 0.25rem;
@@ -22,6 +34,7 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
+        transition: background-color 0.25s ease;
     }
     &__icon {
         height: 0.5em;

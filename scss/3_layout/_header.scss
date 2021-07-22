@@ -1,5 +1,10 @@
 @use "../1_abstracts/" as *;
 .header {
-    display: block;
+    display: grid;
     width: 100%;
+    grid-template-columns: 1fr;
+    gap: 1.5rem 1.5rem;
+    @include responsive($screen-tablet-s) {
+        grid-template-columns: 2fr 1fr;
+    }
 }
