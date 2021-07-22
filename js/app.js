@@ -94,7 +94,9 @@ const dom = {
     home: {
         mood: new DomElement("intro__select", "", "select"),
         selectedCategory: new DomElement("select__name"),
-        categories: new DomElementGroup("select__label")
+        categories: new DomElementGroup("select__label"),
+        storyLikeIcons: new DomElementGroup("story .story__like", "", "story__like"),
+        storyLikeButtons: new DomElementGroup("story .story__button", "", "story__button")
     }
 }
 
@@ -268,5 +270,27 @@ if (dom.home.mood.element) {
     dom.home.categories.elements.forEach(element => element.addEventListener("click", () => {
         dom.home.selectedCategory.element.innerText = element.innerHTML;
         dom.home.mood.changeState();
+    }));
+    dom.home.storyLikeIcons.elements.forEach(element => element.addEventListener("click", () => {
+        const story = element.parentElement.parentElement;
+        const form = story.querySelector(".story__form");
+        const circle = document.createElement("div");
+        circle.classList.add("story__circle");
+        const parentHeight = story.clientHeight;
+        const parentWidth = story.clientWidth;
+        const diagonal = Math.sqrt(parentWidth ** 2 + parentHeight ** 2);
+        circle.style.height = diagonal * 2 + "px";
+        circle.style.width = diagonal * 2 + "px";
+        story.append(circle);
+        setTimeout(() => { circle.classList.toggle("story__circle--active") }, 0);
+        setTimeout(() => { form.classList.toggle("story__form--active") }, 250);
+    }));
+    dom.home.storyLikeButtons.elements.forEach(element => element.addEventListener("click", () => {
+        const form = element.parentElement.parentElement;
+        const story = form.parentElement;
+        const circle = story.lastElementChild;
+        form.classList.toggle("story__form--active");
+        setTimeout(() => { circle.classList.toggle("story__circle--active") }, 250);
+        setTimeout(() => { circle.remove() }, 750);
     }))
 }

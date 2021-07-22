@@ -88,16 +88,17 @@
         pointer-events: none;
         padding: 1.5rem;
         position: absolute;
-        z-index: 2;
+        z-index: 4;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: $color-white;
+        color: $color-white;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        transition: opacity 0.5s ease;
         &--active {
             opacity: 1;
             pointer-events: all;
@@ -117,8 +118,8 @@
         font-size: 0.875rem;
         padding: 0.5em 1em;
         margin: 0.25em;
-        color: $color-white;
-        background-color: $color-green;
+        color: $color-purple;
+        background-color: $color-white;
         border-radius: 2.5em;
         opacity: 0.5;
         cursor: pointer;
@@ -134,6 +135,7 @@
     }
     &__buttons {
         width: 100%;
+        max-width: 24rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
@@ -141,5 +143,19 @@
     &__button {
         flex: 0 0 50%;
         display: inline;
+    }
+    &__circle {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        right: 0;
+        transform: translate(50%, 50%) scale(0);
+        background-color: $color-purple;
+        border-radius: 50%;
+        transition: transform 0.5s ease;
+        &--active {
+            transform: translate(50%, 50%) scale(1);
+        }
     }
 }
