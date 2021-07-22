@@ -5,6 +5,8 @@
     text-decoration: none;
     border-radius: 0.25em;
     font-weight: 700;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
     outline: none;
     border: none;
     cursor: pointer;
@@ -36,6 +38,16 @@
         &:hover,
         &:focus {
             background-color: lighten($color-purple, 5%);
+        }
+    }
+    &--purple-outline {
+        color: $color-purple;
+        background-color: transparent;
+        border: 0.125rem solid currentColor;
+        transition: color 0.25s ease;
+        &:hover,
+        &:focus {
+            color: lighten($color-purple, 5%);
         }
     }
 }

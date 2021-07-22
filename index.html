@@ -19,14 +19,14 @@
                 <div class="navigation__toggle-element navigation__toggle-element--3"></div>
             </div>
             <nav class="navigation__menu">
-                <a href="index.html" class="navigation__item">
+                <a href="index.html" class="navigation__item navigation__item--active">
                     <svg viewbox="0 0 17.4 16" class="navigation__icon">
                         <path
                             d="M17.23,8.05,14.5,5.32V1.5a.58.58,0,0,0-.58-.58H12.76a.58.58,0,0,0-.58.58V3L9.52.34a1.16,1.16,0,0,0-1.64,0L.17,8.05A.58.58,0,1,0,1,8.87l.75-.75v6.14A1.74,1.74,0,0,0,3.48,16H13.92a1.74,1.74,0,0,0,1.74-1.74V8.12l.75.75a.58.58,0,0,0,.41.17.57.57,0,0,0,.41-.17.58.58,0,0,0,0-.82ZM14.5,14.26a.58.58,0,0,1-.58.58H3.48a.58.58,0,0,1-.58-.58V7l5.8-5.8L14.5,7Z" />
                     </svg>
                     <span class="navigation__link-text">Home</span>
                 </a>
-                <a href="favorites.html" class="navigation__item navigation__item--active">
+                <a href="favorites.html" class="navigation__item">
                     <svg viewbox="0 0 12 16" class="navigation__icon">
                         <path
                             d="M8,2H2a2,2,0,0,0-1.41.59A2,2,0,0,0,0,4V15.5a.48.48,0,0,0,.07.26.55.55,0,0,0,.19.18A.58.58,0,0,0,.52,16a.5.5,0,0,0,.26-.08L5,13.1l4.22,2.82a.5.5,0,0,0,.26.08.58.58,0,0,0,.26-.06.55.55,0,0,0,.19-.18A.48.48,0,0,0,10,15.5V4A2,2,0,0,0,8,2ZM9,14.57,5.28,12.08A.54.54,0,0,0,5,12a.57.57,0,0,0-.28.08L1,14.57V4a1,1,0,0,1,.29-.71A1,1,0,0,1,2,3H8A1,1,0,0,1,9,4Z" />
@@ -123,6 +123,48 @@
             </header>
             <div class="separator"></div>
             <section class="content content--home">
+                <div class="story card story--vertical">
+                    <div class="story__main">
+                        <h3 class="story__heading heading-3">Story 1</h3>
+                        <p class="story__label">22/07/2021</p>
+                        <p class="story__text paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aut
+                            sequi cumque harum placeat sapiente et possimus eveniet vero! Commodi, illum sint. Facilis,
+                            doloremque? Optio ullam veniam dolorum accusantium ipsa! Lorem ipsum dolor sit, amet
+                            consectetur
+                            adipisicing elit. Ratione alias ut laudantium sunt ipsa modi reprehenderit ad, quasi veniam
+                            voluptatibus nemo quas dolores magnam perferendis molestias voluptatem tenetur. At,
+                            accusantium!
+                        </p>
+                        <div class="story__overlay"></div>
+                        <div class="story__controls">
+                            <div class="story__links">
+                                <a href="/" class="story__link link">Read</a>
+                            </div>
+                            <div class="story__like">
+                                <div class="story__number">54</div>
+                                <div class="story__icon-box">
+                                    <svg viewbox="0 0 16 16" class="story__icon">
+                                        <path d="M8,1.4C3.56-3.46-7.53,5.05,8,16,23.53,5.05,12.44-3.46,8,1.4Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story__form">
+                        <h4 class="story__form-heading heading-4">This made me feel...</h4>
+                        <div class="story__categories">
+                            <div class="story__category">Inspired</div>
+                            <div class="story__category">Motivated</div>
+                            <div class="story__category">Happy</div>
+                            <div class="story__category">Grateful</div>
+                            <div class="story__category">Calm</div>
+                        </div>
+                        <div class="story__buttons">
+                            <button class="story__button button button--purple-fill">Confirm</button>
+                            <button class="story__button button button--purple-outline">Cancel</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="story card story--horizontal">
                     <h3 class="story__heading heading-3">An exciting story title</h3>
                     <p class="story__label">22/07/2021</p>
@@ -148,30 +190,6 @@
                     </div>
                 </div>
                 <div class="story card story--horizontal">
-                    <h3 class="story__heading heading-3">An exciting story title</h3>
-                    <p class="story__label">22/07/2021</p>
-                    <p class="story__text paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aut
-                        sequi cumque harum placeat sapiente et possimus eveniet vero! Commodi, illum sint. Facilis,
-                        doloremque? Optio ullam veniam dolorum accusantium ipsa! Lorem ipsum dolor sit, amet consectetur
-                        adipisicing elit. Ratione alias ut laudantium sunt ipsa modi reprehenderit ad, quasi veniam
-                        voluptatibus nemo quas dolores magnam perferendis molestias voluptatem tenetur. At, accusantium!
-                    </p>
-                    <div class="story__overlay"></div>
-                    <div class="story__controls">
-                        <div class="story__links">
-                            <a href="/" class="story__link link">Read</a>
-                        </div>
-                        <div class="story__like">
-                            <div class="story__number">54</div>
-                            <div class="story__icon-box">
-                                <svg viewbox="0 0 16 16" class="story__icon">
-                                    <path d="M8,1.4C3.56-3.46-7.53,5.05,8,16,23.53,5.05,12.44-3.46,8,1.4Z" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="story card story--vertical">
                     <h3 class="story__heading heading-3">An exciting story title</h3>
                     <p class="story__label">22/07/2021</p>
                     <p class="story__text paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aut

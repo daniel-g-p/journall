@@ -5,7 +5,9 @@
     color: $color-white;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 16rem;
     &__heading {
         margin-bottom: 1rem;
     }
