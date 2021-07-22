@@ -719,7 +719,7 @@ mark {
 }
 .quote__like {
   align-self: flex-end;
-  background-color: #FFFFFF;
+  background-color: #9FDF9F;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -727,15 +727,14 @@ mark {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.25s ease;
 }
-.quote__like:hover, .quote__like--checked {
-  background-color: #9FDF9F;
-}
-.quote__like:hover .quote__icon, .quote__like--checked .quote__icon {
-  fill: #FFFFFF;
+.quote__like:hover, .quote__like--liked {
+  opacity: 1;
 }
 .quote__icon {
-  fill: #404040;
+  fill: #FFFFFF;
   height: 50%;
 }
 
@@ -847,6 +846,10 @@ mark {
   background-color: #FFFFFF;
   border-radius: 1rem;
   box-shadow: 0 0.125rem 0.25rem #00000025;
+  cursor: pointer;
+}
+.story__like:hover .story__icon-box, .story__like--liked .story__icon-box {
+  opacity: 1;
 }
 .story__number {
   padding: 0 0.5rem 0 0.75rem;
@@ -861,6 +864,8 @@ mark {
   justify-content: center;
   align-items: center;
   background-color: #9FDF9F;
+  opacity: 0.75;
+  transition: opacity 0.25s ease;
 }
 .story__icon {
   height: 1rem;

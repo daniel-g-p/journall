@@ -19,7 +19,7 @@
     }
     &__like {
         align-self: flex-end;
-        background-color: $color-white;
+        background-color: $color-green;
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
@@ -27,18 +27,15 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        // transition: background-color 0.25s ease;
+        opacity: 0.75;
+        transition: opacity 0.25s ease;
         &:hover,
-        &--checked {
-            background-color: $color-green;
-            .quote__icon {
-                fill: $color-white;
-            }
+        &--liked {
+            opacity: 1;
         }
     }
     &__icon {
-        fill: $color-green;
+        fill: $color-white;
         height: 50%;
-        // transition: fill 0.25s ease;
     }
 }

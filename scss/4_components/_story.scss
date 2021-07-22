@@ -33,6 +33,13 @@
         background-color: $color-white;
         border-radius: 1rem;
         box-shadow: 0 0.125rem 0.25rem $color-shadow;
+        cursor: pointer;
+        &:hover,
+        &--liked {
+            .story__icon-box {
+                opacity: 1;
+            }
+        }
     }
     &__number {
         padding: 0 0.5rem 0 0.75rem;
@@ -47,9 +54,11 @@
         justify-content: center;
         align-items: center;
         background-color: $color-green;
+        opacity: 0.75;
+        transition: opacity 0.25s ease;
     }
     &__icon {
         height: 1rem;
-        fill: $color-white
+        fill: $color-white;
     }
 }
