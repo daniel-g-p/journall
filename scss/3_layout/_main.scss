@@ -14,4 +14,7 @@
         height: 100vh;
         overflow-y: scroll;
     }
+    @include responsive($screen-desktop-l) {
+        padding: 6rem;
+    }
 }

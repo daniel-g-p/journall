@@ -5,4 +5,7 @@
     background-color: rgba($color-green, 0.1);
     display: block;
     margin: 1.5rem 0;
+    @include responsive($screen-desktop-s) {
+        margin: 2rem 0;
+    }
 }

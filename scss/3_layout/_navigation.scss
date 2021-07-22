@@ -21,13 +21,13 @@
     }
     &__logo {
         position: relative;
-        z-index: 2;
+        z-index: 3;
         height: 2rem;
     }
     &__toggle {
         cursor: pointer;
         position: relative;
-        z-index: 2;
+        z-index: 3;
         display: block;
         width: 2rem;
         height: 1.5rem;
@@ -80,7 +80,7 @@
     }
     &__menu {
         position: fixed;
-        z-index: 1;
+        z-index: 2;
         top: 0;
         right: 100%;
         width: 100vw;

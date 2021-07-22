@@ -1,5 +1,24 @@
 @use "../1_abstracts/" as *;
 .content {
     background-color: $color-green-light;
-    height: 100vh;
+    display: grid;
+    &--home {
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 16rem;
+        grid-auto-flow: row dense;
+        @include responsive($screen-tablet-s) {
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        }
+        @include responsive($screen-desktop-s) {
+            gap: 2rem;
+        }
+        // @include responsive($screen-tablet-s) {
+        //     grid-template-columns: repeat(2, 1fr);
+        // }
+        // @include responsive($screen-desktop-s) {
+        //     grid-template-columns: repeat(3, 1fr);
+        // }
+    }
 }
